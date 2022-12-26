@@ -2,7 +2,6 @@
 
 import robots
 
-
 class Melon:
     """Melon."""
 
@@ -30,7 +29,7 @@ class Melon:
             return f"{self.color} {self.weight:.2f} lbs {self.melon_type}"
 
 
-class Squash(Melon):
+class Squash(Melon): #We’re considering squashes to be a type of melon
     """Winter squash."""
     #  ^bc of the line in ship proced.:
     #  else:
@@ -39,12 +38,16 @@ class Squash(Melon):
         super().__init__("Winter Squash")
         self.melon_type = melon_type
         
-
+# ...since we want to make sure that squash 
+# get painted green, we should override the prep() 
+# method to include use of a painting robo
     def prep(self):
         """prep and paint unripe squash green to fool customers"""
         robots.cleanerbot.clean(self)
         robots.stickerbot.apply_logo(self)
-        robots.painterbot.paint(self)
+        robots.painterbot.paint(self) #correct
+
+
 
 
 #ORIGINAL ERROR:
